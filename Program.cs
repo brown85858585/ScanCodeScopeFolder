@@ -70,6 +70,7 @@ class Program
         _services.AddSingleton<IFilePriorityService, FilePriorityService>();
         _services.AddSingleton<IDirectoryWalker, DirectoryWalker>();
         _services.AddSingleton<IFileFormatter, CreateFile>();
+        _services.AddSingleton<IGitService, GitService>(); 
         _services.AddSingleton<IMenuService, MenuService>();
         
         _serviceProvider = _services.BuildServiceProvider();
