@@ -38,20 +38,20 @@ public class AppConfig
         { ".gitignore", 22 }
     };
 
-    public HashSet<string> IgnoredPatterns { get; set; } = new()
+    public HashSet<string> IgnoredDirectories { get; set; } = new()
     {
-        // Стандартные игнорируемые папки Unity
-        "Library",
-        "Temp",
-        "Obj",
-        "Build",
-        "Builds",
-        "WebGLBuild",
-        ".vs",
-        ".vscode",
-        "Logs",
-        "Backups",
+        // Стандартные игнорируемые папки
+        "bin", "obj", ".git", ".vs", ".vscode",
+        "Library", "Temp", "Build", "Builds", "WebGLBuild",
+        "Logs", "Backups", "Packages", "UserSettings",
         
+        // Unity специфичные
+        "Assets/AssetStoreTools",
+        "ProjectSettings/AssetGraphSettings"
+    };
+
+    public HashSet<string> IgnoredPatterns { get; set; } = new()
+    {        
         // Бинарные файлы
         ".dll", ".pdb", ".exe", ".cache", ".suo", ".user",
         ".bin", ".obj", ".nupkg", ".snupkg", ".jar", ".a",
@@ -81,12 +81,17 @@ public class AppConfig
     {
         // Игнорируем собственные отчеты и генерируемые файлы
         "ScanCodeScopeSummary.md",
+        
         // Системные файлы Unity
-        "ProjectSettings.asset", // (он есть в папке ProjectSettings)
+        "ProjectSettings.asset",
         "UnityLockFile",
         "CREDITS.html",
         "LICENSE.html",
-        "COPYING.html"
+        "COPYING.html",
+        
+        // Файлы IDE
+        ".DS_Store",
+        "Thumbs.db"
     };
 
     public int DefaultPriority { get; set; } = 50;

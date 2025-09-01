@@ -11,7 +11,7 @@ class Program
 
     static void Main()
     {
-        OneAppMain ();
+        DefaultMain ();
     }
 
     static void DefaultMain ()
@@ -19,7 +19,7 @@ class Program
         MainServices();
         
         var menuService = _serviceProvider!.GetRequiredService<IMenuService>();
-        
+
         menuService.ShowMainMenu();
 
         while (true)
@@ -28,6 +28,7 @@ class Program
             {
                 var key = Console.ReadKey(intercept: true);
                 menuService.ProcessKey(key.KeyChar);
+                menuService.ShowMainMenu();
             }
             Thread.Sleep(100);
         }

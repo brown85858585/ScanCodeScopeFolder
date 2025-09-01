@@ -66,6 +66,10 @@ public class ConfigParser
                     config.IgnoredPatterns.Add(value);
                     break;
                     
+                case "ignoredirectory":
+                    config.IgnoredDirectories.Add(value);
+                    break;
+                    
                 case "ignorefile":
                     config.IgnoredFiles.Add(value);
                     break;
@@ -77,7 +81,6 @@ public class ConfigParser
                 case "defaultpriority":
                     if (int.TryParse(value, out int defaultPriority))
                     {
-                        // Сохраним для использования в сервисе
                         config.DefaultPriority = defaultPriority;
                     }
                     break;
